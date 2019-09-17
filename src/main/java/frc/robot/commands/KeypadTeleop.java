@@ -1,3 +1,7 @@
+/**
+ * This KeypadTeleop class lets you execute additional commands when you have a numpad connected.
+ */
+
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;

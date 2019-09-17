@@ -5,6 +5,7 @@ import frc.robot.RobotMap;
 
 public class Climber {
 
+
     private DoubleSolenoid solenoid;
 
     public Climber() {

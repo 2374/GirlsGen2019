@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import frc.robot.Robot;
 import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class DrivetrainTeleop extends Command {
@@ -29,6 +30,11 @@ public class DrivetrainTeleop extends Command {
 			Robot.getDrivetrain().tankDrive(Robot.getInput().getLeftTrigger(), Robot.getInput().getLeftTrigger());
 		} else if (Robot.getInput().getRightTrigger() > 0.0) {
 			Robot.getDrivetrain().tankDrive(-Robot.getInput().getRightTrigger(), -Robot.getInput().getRightTrigger());
+		} else if (Robot.getInput().getButtonY()) {
+				Robot.getClimber().getPiston().set(Robot.getClimber().getPiston().get() == Value.kOff ||
+													Robot.getClimber().getPiston().get() == Value.kReverse
+													? Value.kForward : Value.kReverse);
+													
 		} else {
 			//Robot.getDrivetrain().tankDrive(Robot.getInput().getJoystickLeftY(), Robot.getInput().getJoystickRightY());
 			if (Robot.getInput().isSpeeding()) {
